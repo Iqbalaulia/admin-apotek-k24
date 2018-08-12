@@ -1,0 +1,61 @@
+elseif (isset($_POST['Simpantransaksi'])) {
+
+  $namacustomer = $_POST['namacustomer'];
+  $rumahsakit = $_POST['rumahsakit'];
+  $namadokter = $_POST['namadokter'];
+  $alamat = $_POST['alamat'];
+  $tanggalpembelian = $_POST['tanggalpembelian'];
+  $idtransaksi = rand(999,900000);
+  $kodeobat = $_POST['kodeobat'];
+  $namaobat = $_POST['namaobat'];
+  $tipeobat = $_POST['tipeobat'];
+  $harga = $_POST['hargajual'];
+  $jumlah = $_POST['jumlahbarang'];
+  $total = $_POST['total'];
+  $totalpenjualan = $_POST['totalpenjualan'];
+  $diskonobat = $_POST['diskonobat'];
+  $uang_dibayarkan = $_POST['uang_dibayarkan'];
+
+  
+
+  // Perhitungan
+  // $total_kali_diskon = $totalpenjualan * $diskonobat;
+  // $total_plus_diskon = $totalpenjualan - $total_kali_diskon;
+  // $kembalian = $uang_dibayarkan - $total_plus_diskon ;
+
+  // echo "total_kali_diskon=".$total_kali_diskon;
+  // echo "total_plus_diskon=".$total_plus_diskon;
+  // echo "kembalian=".$kembalian;
+  // $barangyangdibeli = count($namaobat);
+  // echo $barangyangdibeli."".$namaobat;
+
+  for ($i=0; $i < $barangyangdibeli; $i++) { 
+    $id_item = rand(999,9000) . $i;
+    echo $id_item."".$idtransaksi."".$kodeobat[$i]."".$namaobat[$i]."".$tipeobat[$i]."".$harga[$i]."".$jumlah[$i]."".$total[$i]."".$totalpenjualan[$i].'<br>';
+    // ditambah ke db soal diskonobat , total_plus_diskon dan kembalian
+    // mysqli_query($dbconnect, "INSERT INTO item (id_item, id_transaksi, namacustomer,rumahsakit,namadokter, alamat, tanggalpembelian, kodeobat, tipeobat , namaobat, harga, jumlahbarang, total) 
+    //   VALUES (
+    //   '$id_item',
+    //   '$idtransaksi',
+    //   '$namacustomer',
+    //   '$rumahsakit',
+    //   '$namadokter',
+    //   '$alamat',
+    //   '$tanggalpembelian',
+    //   '$kodeobat[$i]',
+    //   '$tipeobat[$i]',
+    //   '$namaobat[$i]',
+    //   '$harga[$i]',
+    //   '$jumlah[$i]',
+    //   '$total[$i]')");
+
+    // $query = "SELECT * FROM masterbarang WHERE namaobat='$namaobat[$i]' AND tipeobat='$tipeobat[$i]'";
+    // $hasil = mysqli_query($dbconnect, $query);
+    // $row = mysqli_fetch_array($hasil);
+
+    // $stokawal = $row['stok'];
+    // $sisastok = $stokawal - $jumlah[$i];
+
+    // mysqli_query($dbconnect, "UPDATE masterbarang SET stok='$sisastok' WHERE namaobat='$namaobat[$i]' AND tipeobat='$tipeobat[$i]'");
+    echo '<META HTTP-EQUIV="Refresh" Content="0; URL=TPenjualan.php">'; 
+  } 
